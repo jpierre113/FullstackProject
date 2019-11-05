@@ -31,13 +31,13 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=pgdev
-  book-api:
+  users-api:
     image: maven:3.6.1-jdk-8
     ports:
       - '8081:8081'
     working_dir: /app
     volumes:
-      - ./book-api:/app
+      - ./users-api:/app
     depends_on:
       - eureka
     command: 'mvn spring-boot:run'
