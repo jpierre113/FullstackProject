@@ -1,4 +1,4 @@
-package com.example.HotelReservation;
+package com.example.roomapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
