@@ -29,9 +29,7 @@ class App extends Component {
           <Route path="/reservation" component={Reservation} />
         </div>
       </Router>
-      <Header />
-      <Nav />
-      <Main />
+
       <Footer />
     </div>
   );
