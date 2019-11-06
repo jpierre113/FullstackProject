@@ -9,9 +9,11 @@
         <module name="users-api" />
         <module name="eureka-server" />
         <module name="zuul-gateway" />
-        <module name="room-api" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="room-api" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
