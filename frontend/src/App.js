@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Home from './Home';
 import Reservation from './Reservation';
 import Signup from './Signup';
+import Login from './Login';
 
 import {
   BrowserRouter as Router,
@@ -27,8 +28,8 @@ class App extends Component {
           <Route path="/reservation" component={Reservation} />
         </div>
       </Router>
-      
-      <Signup />
+
+      <Signup /> <Login />
 
 
     </div>

@@ -49,6 +49,9 @@ const Signup = (props) => {
       placeholder="Password"
       />
       </form>
+      <input type="submit" value="Signup!" />
+
+
       </div>
     );
 
