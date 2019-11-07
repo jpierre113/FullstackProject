@@ -1,8 +1,8 @@
-import React {Component} from 'react';
-import Header from './Header';
-import Nav from './Nav';
-import Footer from './Footer';
-import Main from './Main';
+import React, {Component} from 'react';
+import Home from './Home';
+import Reservation from './Reservation';
+import Signup from './Signup';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -20,17 +20,17 @@ class App extends Component {
     <Router>
         <div>
           <nav>
-            <Link to="/">Go to Home Page</Link>{' '}
-            <Link to="/main">See Our Procedures</Link>{' '}
+            <Link to="/">Signup / Login</Link>{' '}
             <Link to="/reservation">Make a reservation</Link>
           </nav>
           <Route exact path="/" component={Home} />
-          <Route path="/main" component={Main} />
           <Route path="/reservation" component={Reservation} />
         </div>
       </Router>
+      
+      <Signup />
 
-      <Footer />
+
     </div>
   );
   }
