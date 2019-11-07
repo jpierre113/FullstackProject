@@ -3,6 +3,7 @@ import Home from './Home';
 import Reservation from './Reservation';
 import Signup from './Signup';
 import Login from './Login';
+import Rooms from './Rooms'
 
 import {
   BrowserRouter as Router,
@@ -23,6 +24,7 @@ class App extends Component {
           <nav>
             <Link to="/" className="link">Signup / Login</Link>{' '}
             <Link to="/reservation" className="link">Make a reservation</Link>{Reservation}
+            <Link to="/rooms" className="link">Rooms Listing</Link>{Rooms}
           </nav>
             <Route exact path="/" render={props =>
               <div>
@@ -31,6 +33,7 @@ class App extends Component {
               </div>
             } />
             <Route path="/reservation" component={Reservation} />
+            <Route path="/rooms" component={Rooms} />
         </div>
       </Router>
 
