@@ -14,6 +14,7 @@ const Reservation = (props) => {
         todayButton: 'Today',
       }}
     />
+    <input type="submit" value="Search" />
       </div>
     );
 

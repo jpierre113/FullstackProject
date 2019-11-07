@@ -21,15 +21,18 @@ class App extends Component {
     <Router>
         <div>
           <nav>
-            <Link to="/">Signup / Login</Link>{' '}
-            <Link to="/reservation">Make a reservation</Link>
+            <Link to="/" className="link">Signup / Login</Link>{' '}
+            <Link to="/reservation" className="link">Make a reservation</Link>{Reservation}
           </nav>
-          <Route exact path="/" component={Home} />
-          <Route path="/reservation" component={Reservation} />
+            <Route exact path="/" render={props =>
+              <div>
+                <Signup />
+                <Login />
+              </div>
+            } />
+            <Route path="/reservation" component={Reservation} />
         </div>
       </Router>
-
-      <Signup /> <Login />
 
 
     </div>
