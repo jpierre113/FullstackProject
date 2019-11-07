@@ -1,22 +1,17 @@
 .App {
   text-align: center;
+  background-image: url("/landing.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width:auto;
+  height: 700px;
+
+
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* NAV */
+nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+  justify-content: space-around;
+  padding-top: 20px;
 }
