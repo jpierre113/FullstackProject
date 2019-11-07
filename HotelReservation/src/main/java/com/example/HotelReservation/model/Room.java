@@ -9,7 +9,11 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String bedType;
+
+    @Column
     private Date dateReserved;
 
     public Long getId() {
@@ -35,5 +39,12 @@ public class Room {
     public void setDateReserved(Date dateReserved) {
         this.dateReserved = dateReserved;
     }
+
+    private User users;
+
+    public User getUsers() {
+        return users;
+    }
+    public void setUsers(User user){this.users = users;}
 }
 
