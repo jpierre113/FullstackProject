@@ -5,7 +5,9 @@ import com.example.HotelReservation.model.User;
 import com.example.HotelReservation.repository.RoomRepository;
 import com.example.HotelReservation.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RoomServiceImpl implements RoomService {
 
     @Autowired

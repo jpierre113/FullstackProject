@@ -1,6 +1,7 @@
 package com.example.HotelReservation.service;
 
 import com.example.HotelReservation.model.Room;
+import org.springframework.stereotype.Service;
 
 public interface RoomService {
 
