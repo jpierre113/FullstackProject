@@ -1,15 +1,17 @@
 package com.example.HotelReservation.controller;
 
+import com.example.HotelReservation.model.JwtResponse;
+import com.example.HotelReservation.model.User;
 import com.example.HotelReservation.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.userdetails.User;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
+
     @Autowired
     UserService userService;
 
@@ -18,7 +20,7 @@ public class UserController {
         return ResponseEntity.ok(new JwtResponse(userService.login(user)));
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/user/list")
     public Iterable<User> listUsers() {
         return userService.listUsers();

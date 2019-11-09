@@ -1,23 +1,27 @@
 package com.example.HotelReservation.service;
 
+
+import com.example.HotelReservation.config.JwtUtil;
+import com.example.HotelReservation.model.User;
 import com.example.HotelReservation.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    RoomRepository roomRepository;
+//    @Autowired
+//    RoomRepository roomRepository;
 
     @Autowired
     JwtUtil jwtUtil;
@@ -42,6 +46,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
+
     @Override
     public Iterable<User> listUsers() {
         return userRepository.findAll();
@@ -54,6 +59,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public String createUser(User newUser) {
+//        UserRole userRole = userRoleService.getRole(newUser.getUserRole().getName());
+//        newUser.setUserRole(userRole);
         newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
         if(userRepository.save(newUser) != null){
             UserDetails userDetails = loadUserByUsername(newUser.getUsername());
@@ -67,6 +74,7 @@ public class UserServiceImpl implements UserService {
      * @param user
      * @return find user by username, find pw and return token
      */
+    //
     @Override
     public String login(User user){
         User newUser = userRepository.findByUsername(user.getUsername());
@@ -77,22 +85,6 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
-
-    /**
-     *
-     * @param username
-     * @param postId
-     * @return save post to user
-     */
-
-//    @Override
-//    public User addPost(String username, int postId) {
-//        Posts post = postRepository.findById(postId).get();
-//        User user = getUser(username);
-//        user.addPost(post);
-//
-//        return userRepository.save(user);
-//    }
 
     /**
      *

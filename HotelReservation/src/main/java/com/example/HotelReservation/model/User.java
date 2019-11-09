@@ -4,19 +4,18 @@ package com.example.HotelReservation.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
 
-@Entity(name = "user")
+@Entity
+@Table(name = "users")
 public class User {
 
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -27,18 +26,21 @@ public class User {
     private String lastName;
 
     @Column(unique = true)
-    private String email;
+    private String username;
 
     @Column
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="user_room")
+    @OneToOne(cascade = {CascadeType.DETACH,
+            CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "room_id")
+
     private Room room;
 
-
-
-    public User(){}
+    public Room getRoom() {
+        return room;
+    }
+    public void setRoom(Room room){this.room = room;}
 
     public Long getId() {
         return id;
@@ -56,9 +58,9 @@ public class User {
 
     public void setLastName(String lastName){this.lastName = lastName;}
 
-    public String getEmail(){return email;}
+    public String getUsername(){return username;}
 
-    public void setEmail(String email){this.email = email;}
+    public void setUsername(String username){this.username = username;}
 
     public String getPassword(){return password;}
 

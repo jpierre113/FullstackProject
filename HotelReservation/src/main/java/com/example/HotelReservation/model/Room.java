@@ -1,9 +1,17 @@
 package com.example.HotelReservation.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.sql.Date;
 
-@Entity(name = "room")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+
+@Entity
+@Table(name = "room")
 public class Room {
 
     @Id
@@ -39,6 +47,11 @@ public class Room {
     public void setDateReserved(Date dateReserved) {
         this.dateReserved = dateReserved;
     }
+
+    //connects room to users
+    @OneToOne(cascade = {CascadeType.DETACH,
+            CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id")
 
     private User users;
 
