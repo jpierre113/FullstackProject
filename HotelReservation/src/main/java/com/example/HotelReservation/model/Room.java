@@ -55,9 +55,9 @@ public class Room {
 
     private User users;
 
-    public User getUsers() {
+    public User getUser() {
         return users;
     }
-    public void setUsers(User user){this.users = users;}
+    public void setUser(User user){this.users = users;}
 }
 

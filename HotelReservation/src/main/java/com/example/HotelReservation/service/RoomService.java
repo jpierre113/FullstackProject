@@ -4,7 +4,7 @@ import com.example.HotelReservation.model.Room;
 
 public interface RoomService {
 
-    public Room createPost(Room newRoom, Long userId);
+    public Room createRoom(Room newRoom, Long userId);
 
     public Iterable<Room> listRooms();
 
